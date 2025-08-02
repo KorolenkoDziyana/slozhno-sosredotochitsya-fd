@@ -17,14 +17,15 @@
   display: grid; /* Cоздали Grid контейнер */
   position: relative; /* Позиционирование для дочерних абсолютно позиционированных элементов */
   grid-template-columns: 1fr; /* Одна колонка, занимающая всё доступное пространство */
-  grid-template-rows: 1fr min-content 1fr; /* 3 строки: 1-я и 3-я  1 ahtqv, 2-я — размер по содержимому */
+  grid-template-rows: 1fr max-content 1fr; /* 3 строки: 1-я и 3-я  1 ahtqv, 2-я — размер по содержимому */
   padding: 10px; /* Отступы*/
-  margin-block-end: 40px; /* Отступ снизу */
+  margin-block-end: 40px;
 }
 
 .decorated-zone {
   position: relative; /* Нужно для позиционирования псевдоэлементов */
 }
+
 
 /* Правый верхний уголок */
 .decorated-zone::before {
@@ -129,7 +130,7 @@
   height: 9px;
   border-radius: 50%; /* Круглая форма */
   background-color: var(--rec-color);
-  box-shadow: 0 0 5px 3px var(--rec-color); /* Свечение */
+  box-shadow: 0 0 4px 2px var(--rec-color); /* Свечение */
 }
 
 /*заголовок большой*/
@@ -140,6 +141,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 0.83; /* Межстрочный интервал 83% */
+ 
 }
 
 /* Тень для текста */
@@ -267,7 +269,6 @@
   margin-block-start: 10px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 142px 355px 237px 355px 237px;
   gap: 10px;
   grid-template-areas:
     "first"
@@ -357,12 +358,12 @@
   }
 
   .header__title {
+    margin-top: 5px;
     margin-inline-start: -20px;
   }
 
   .header__description {
     width: calc(100vw - 55%);
-    height: min-content;
     justify-self: end;
     align-self: center;
   }
@@ -384,19 +385,19 @@
 
   .content-image {
     padding: 0 20px;
-    margin-block-end: 60px;
+    margin-block-end: 46px;
   }
 
   .content-image_items {
     margin-block-start: 20px;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 192px 230px 318px;
     gap: 22px;
     grid-template-areas:
       "first first two"
       "three four two"
       "three five five";
   }
+
 }
 
 @media (width >= 1024px) {
@@ -427,6 +428,6 @@
   }
 
   .content-image_items {
-    grid-template-rows: 260px 315px 428px;
+    
   }
 }
